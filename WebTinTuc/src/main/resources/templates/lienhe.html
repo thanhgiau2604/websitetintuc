@@ -1,0 +1,182 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<!-- meta character set -->
+		<meta charset="UTF-8"/>
+		<!-- Site Title -->
+		<title>Traffic News - Liên hệ</title>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"/>
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" th:href="@{/css/linearicons.css}" />
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+		<link rel="stylesheet" th:href="@{/css/magnific-popup.css}" />
+		<link rel="stylesheet" th:href="@{/css/nice-select.css}" />
+		<link rel="stylesheet" th:href="@{/css/animate.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/owl.carousel.css}" />
+		<link rel="stylesheet" th:href="@{/css/jquery-ui.css}" />
+		<link rel="stylesheet" th:href="@{/css/main.css}" />
+	</head>
+	<body>
+		<header>		
+			<div class="logo-wrap">
+				<div class="container">
+					<div class="row justify-content-between align-items-center">
+						<div class="col-lg-12 col-md-12 col-sm-12 logo-left no-padding text-center">
+							<a href="index.html">
+								<img class="img-fluid" src="img/logo.png" alt=""/>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container main-menu" id="main-menu">
+				<div class="row align-items-center justify-content-between">
+					<nav id="nav-menu-container">
+						<ul class="nav-menu">
+							<li class="menu-active"><a href="trangchu.html">Trang chủ</a></li>
+							<li class="menu-has-children"><a href="">Tin tức</a>
+							<ul>
+								<li><a href="newnews.html">Tin tức mới</a></li>
+								<li><a href="popularnews.html">Tin phổ biến</a></li>
+								<li><a href="totalnews.html">Tất cả</a></li>
+							</ul>
+						</li>
+						<li><a href="lienhe.html">Liên hệ</a></li>
+					</ul>
+					</nav><!-- #nav-menu-container -->
+					<div class="navbar-right">
+						<form class="Search">
+							<input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="Search"/>
+							<label for="Search-box" class="Search-box-label">
+								<span class="lnr lnr-magnifier"></span>
+							</label>
+							<span class="Search-close">
+								<span class="lnr lnr-cross"></span>
+							</span>
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="site-main-container">
+			<!-- Start top-post Area -->
+			<section class="top-post-area pt-10">
+				<div class="container no-padding">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="hero-nav-area">
+								<h1 class="text-white">Liên hệ</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End top-post Area -->
+			<!-- Start contact-page Area -->
+			<section class="contact-page-area pt-50 pb-120">
+				<div class="container">
+					<div class="row contact-wrap">
+						<div class="map-wrap" style="width:100%; height: 445px;">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.476514028973!2d106.75338911431085!3d10.851315392270699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527bd80c66b4f%3A0x1243c8a70dc5d2e0!2zMSBWw7UgVsSDbiBOZ8OibiwgTGluaCBDaGnhu4N1LCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1554906364167!5m2!1svi!2s" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
+						</div>
+						<div class="col-lg-3 d-flex flex-column address-wrap">
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-home"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Số 1, Võ Văn Ngân</h5>
+									<p>
+										Thủ Đức, TP.HCM
+									</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-phone-handset"></span>
+								</div>
+								<div class="contact-details">
+									<h5>035 962 7733</h5>
+									<p>7h-18h, Thứ 2-Thứ 7</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-envelope"></span>
+								</div>
+								<div class="contact-details">
+									<h5>support@gmail.com</h5>
+									<p></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
+								<div class="row">
+									<div class="col-lg-6">
+										<input name="name" placeholder="Nhập họ tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text"/>
+										
+										<input name="email" placeholder="Nhập địa chỉ email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email"/>
+										<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập chủ đề'" class="common-input mb-20 form-control" required="" type="text"/>
+									</div>
+									<div class="col-lg-6">
+										<textarea class="common-textarea form-control" name="message" placeholder="Nhập nội dung" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
+									</div>
+									<div class="col-lg-12">
+										<div class="alert-msg" style="text-align: left;"></div>
+										<button class="primary-btn primary" style="float: right;">Gửi</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End contact-page Area -->
+		</div>
+		<!-- start footer Area -->
+		<footer class="footer-area section-gap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 logo-left no-padding text-center">
+							<a href="index.html">
+								<img class="img-fluid" src="img/logo.png" alt=""/>
+							</a>
+						</div>
+				</div>
+			    <div class="text-center" style="padding-top: 20px">
+			    	<p class="footer-text m-0 col-lg-12 col-md-12" style="text-align: center; color: white;">@Road traffic news by Student HCMUTE, 2019</p>
+			    </div>
+				<div class="footer-bottom row text-center">
+					<div class="col-lg-12 col-md-12 footer-social text-center">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End footer Area -->
+		<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+		<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+		<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+		<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script th:src="@{/js/easing.min.js}"></script>
+		<script th:src="@{/js/hoverIntent.js}"></script>
+		<script th:src="@{/js/superfish.min.js}"></script>
+		<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+		<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+		<script th:src="@{/js/mn-accordion.js}"></script>
+		<script th:src="@{/js/jquery-ui.js}"></script>
+		<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+		<script th:src="@{/js/owl.carousel.min.js}"></script>
+		<script th:src="@{/js/mail-script.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
+	</body>
+</html>
