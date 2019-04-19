@@ -1,6 +1,7 @@
 package myweb.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,10 +16,19 @@ public class StorageServiceImpl implements StorageService {
 
 	private final Path rootLocation = Paths.get("src/main/resources/static/storage_image");
 
+	InputStream stream = this.getClass().getClassLoader().
+            getResourceAsStream("storage_image");
 	@Override
 	public void store(MultipartFile file) throws IOException {
-		System.out.print("rootLocation= "+rootLocation);
-        Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
-    }
 
+		System.out.print("stream= "+stream);
+		try
+		{
+			Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+		}
+		catch (Exception e)
+		{
+			return;
+		}	
+    }
 }
