@@ -58,4 +58,7 @@ public interface TinTucRepository extends JpaRepository<TinTuc, String>{
 			+ "VALUES(:matintuc,:tieude,:anh,:noidung,NOW(),:tacgia,:luotxem)", nativeQuery=true)
 	void InsertNews(@Param("matintuc") String matintuc, @Param("tieude") String tieude, @Param("anh") String anh, @Param("noidung") String noidung, @Param("tacgia") String tacgia, @Param("luotxem") int luotxem);
 	
+	@Query("Select c from TinTuc c where c.tieude like %:keysearch%")
+	List<TinTuc> search(@Param("keysearch") String keysearch);
+	
 }

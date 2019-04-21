@@ -215,13 +215,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String XemTinTuc(@PathVariable("id") String matintuc, Model model) { 
+	public String XemTinTuc(@PathVariable("id") String matintuc, Model model, HttpSession session) { 
 		TinTuc tintuc = tintucService.findOne(matintuc);
-		model.addAttribute("news", tintuc); 
-		model.addAttribute("listNew",tintucService.findAllNew().subList(0, 4)); 
-		model.addAttribute("listPopular",tintucService.findAllPopular().subList(0, 4));
+		model.addAttribute("news", tintuc);
+		model.addAttribute("listNew", tintucService.findAllNew().subList(0, 4));
+		model.addAttribute("listPopular", tintucService.findAllPopular().subList(0, 4));
 		tintucService.UpdateLuotXem(matintuc);
-		return "ChiTietTinTuc";
+		if (session.getAttribute("usernamead") == null)
+			return "ChiTietTinTuc";
+		else
+			return "ChiTietTinTuc_Ad";
 	}
 	
 	@RequestMapping(value = "/ttnew", method = RequestMethod.GET)
@@ -281,4 +284,15 @@ public class HomeController {
 		model.addAttribute("list",tintucService.getAllDescByNgay());
 		return "QLTinTuc";
 	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String TimKiem(@RequestParam(name="Search-box") String keysearch, Model model, HttpSession session) { 
+		model.addAttribute("listSearch", tintucService.search(keysearch));
+		model.addAttribute("keysearch", keysearch);
+		if (session.getAttribute("usernamead")==null)
+			return "search_result";
+		else
+			return "search_result_ad";
+	}	
+	
 }

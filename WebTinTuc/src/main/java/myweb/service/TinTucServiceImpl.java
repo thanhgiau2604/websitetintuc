@@ -91,4 +91,9 @@ public class TinTucServiceImpl implements TinTucService {
 		
 	}
 
+	@Override
+	public List<TinTuc> search(String keysearch) {
+		return tinTucRepository.search(keysearch);
+	}
+
 }

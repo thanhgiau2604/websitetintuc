@@ -37,4 +37,6 @@ public interface TinTucService {
 	void DeleteNews(String matintuc);
 	
 	void InsertNews(String matintuc, String tieude, String anh, String noidung, String tacgia, int luotxem);
+	
+	List<TinTuc> search(String keysearch);
 }

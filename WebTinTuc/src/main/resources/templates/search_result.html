@@ -3,7 +3,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8"/>
 		<!-- Site Title -->
-		<title>Traffic News - Tin tức phổ biến</title>
+		<title>Traffic News - Tin tức mới</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"/>
 		<!--
 		CSS
@@ -62,28 +62,17 @@
 		</header>
 		
 		<div class="site-main-container">
-			<!-- Start top-post Area -->
-			<section class="top-post-area pt-10">
-				<div class="container no-padding">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="hero-nav-area">
-								<h1 class="text-white">Tin tức phổ biến</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End top-post Area -->
+
 			<!-- Start latest-post Area -->
 			<section class="latest-post-area pb-120">
 				<div class="container no-padding">
 					<div class="row">
-						<div class="col-lg-8 post-list">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-10 post-list">
 							<!-- Start latest-post Area -->
 							<div class="latest-post-wrap">
-								<h4 class="cat-title">Tin tức phổ biến</h4>
-							<th:block th:each="tintuc,pos:${listPopular}">
+								<h4 class="cat-title">Kết quả tìm kiếm: <b th:text="${keysearch}"></b></h4>
+							<th:block th:each="tintuc,pos:${listSearch}">
 								<div class="single-latest-post row align-items-center">
 									<div class="col-lg-5 post-left">
 										<div class="feature-img relative">
@@ -99,76 +88,15 @@
 											<h4 th:text="${tintuc.tieude}"></h4>
 										</a>
 										<ul class="meta">
-											<li><a href="#" th:text="${tintuc.tacgia}"><span
-													class="lnr lnr-user"></span></a></li>
-											<li><a href="#" th:text="${tintuc.ngay}"><span
-													class="lnr lnr-calendar-full"></span></a></li>
+											<li><a href="#" th:text="${tintuc.tacgia}"><span class="lnr lnr-user"></span></a></li>
+											<li><a href="#" th:text="${tintuc.ngay}"><span class="lnr lnr-calendar-full"></span></a></li>
 										</ul>
 										<p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p>
 									</div>
 								</div>
 							</th:block>
-							<!-- <div class="load-more">
-									<a href="#" class="primary-btn">Load More Posts</a>
-								</div> -->
-								
-							</div>
-							<!-- End latest-post Area -->
 						</div>
-						<div class="col-lg-4">
-							<div class="sidebars-area">
-								<div class="single-sidebar-widget most-popular-widget">
-									<h6 class="title">Tin tức mới</h6>
-								<th:block th:each="tintuc,pos:${listNew}">
-									<div class="single-list flex-row d-flex">
-										<div class="thumb">
-											<img th:src="@{/storage_image/{image}(image=${tintuc.anh})}" width="100px" height="80px" />
-										</div>
-										<div class="details">
-											<a th:href="@{/{id}(id=${tintuc.matintuc})}">
-												<h6 th:text="${tintuc.tieude}"></h6>
-											</a>
-											<ul class="meta">
-												<li><a href="#" th:text="${tintuc.ngay}"><span class="lnr lnr-calendar-full"></span></a></li>
-											</ul>
-										</div>
-									</div>
-								</th:block>
-							</div>
-								<div class="single-sidebar-widget social-network-widget">
-									<h6 class="title">Social Networks</h6>
-									<ul class="social-list">
-										<li class="d-flex justify-content-between align-items-center fb">
-											<div class="icons d-flex flex-row align-items-center">
-												<i class="fa fa-facebook" aria-hidden="true"></i>
-												<p>983 Likes</p>
-											</div>
-											<a href="#">Like our page</a>
-										</li>
-										<li class="d-flex justify-content-between align-items-center tw">
-											<div class="icons d-flex flex-row align-items-center">
-												<i class="fa fa-twitter" aria-hidden="true"></i>
-												<p>983 Followers</p>
-											</div>
-											<a href="#">Follow Us</a>
-										</li>
-										<li class="d-flex justify-content-between align-items-center yt">
-											<div class="icons d-flex flex-row align-items-center">
-												<i class="fa fa-youtube-play" aria-hidden="true"></i>
-												<p>983 Subscriber</p>
-											</div>
-											<a href="#">Subscribe</a>
-										</li>
-										<li class="d-flex justify-content-between align-items-center rs">
-											<div class="icons d-flex flex-row align-items-center">
-												<i class="fa fa-rss" aria-hidden="true"></i>
-												<p>983 Subscribe</p>
-											</div>
-											<a href="#">Subscribe</a>
-										</li>
-									</ul>
-								</div>
-							</div>
+							<!-- End latest-post Area -->
 						</div>
 					</div>
 				</div>
@@ -199,24 +127,22 @@
 			</div>
 		</footer>
 		<!-- End footer Area -->
-		<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
-		<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-		<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
-		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-		<script th:src="@{/js/easing.min.js}"></script>
-		<script th:src="@{/js/hoverIntent.js}"></script>
-		<script th:src="@{/js/superfish.min.js}"></script>
-		<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
-		<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
-		<script th:src="@{/js/mn-accordion.js}"></script>
-		<script th:src="@{/js/jquery-ui.js}"></script>
-		<script th:src="@{/js/jquery.nice-select.min.js}"></script>
-		<script th:src="@{/js/owl.carousel.min.js}"></script>
-		<script th:src="@{/js/mail-script.js}"></script>
-		<script th:src="@{/js/main.js}"></script>
+		<script src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+		</script>
+		<script src="@{/js/vendor/bootstrap.min.js}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="@{/js/easing.min.js}"></script>
+		<script src="@{/js/hoverIntent.js}"></script>
+		<script src="@{/js/superfish.min.js}"></script>
+		<script src="@{/js/jquery.ajaxchimp.min.js}"></script>
+		<script src="@{/js/jquery.magnific-popup.min.js}"></script>
+		<script src="@{/js/mn-accordion.js}"></script>
+		<script src="@{/js/jquery-ui.js}"></script>
+		<script src="@{/js/jquery.nice-select.min.js}"></script>
+		<script src="@{/js/owl.carousel.min.js}"></script>
+		<script src="@{/js/mail-script.js}"></script>
+		<script src="@{/js/main.js}"></script>
 	</body>
 </html>
