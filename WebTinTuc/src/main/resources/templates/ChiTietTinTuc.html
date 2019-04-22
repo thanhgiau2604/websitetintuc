@@ -83,7 +83,7 @@
 							<div class="single-post-wrap">
 								<div class="feature-img-thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" th:src="@{/storage_image/{image}(image=${news.anh})}" alt=""/>
+									<img class="img-fluid" th:src="@{${news.anh}}" alt=""/>
 								</div>
 								<div class="content-wrap">
 									<ul class="tags mt-10">
@@ -97,8 +97,8 @@
 										<li><a href="#" th:text="${news.ngay}"><span class="lnr lnr-calendar-full"></span></a></li>
 									</ul>
 									<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<textarea id="textBox1" name="content" TextMode="MultiLine" onkeyup="setHeight('textBox1')" 
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ndtintuc" th:utext="${news.noidung}">
+										<!-- <textarea id="textBox1" name="content" TextMode="MultiLine" onkeyup="setHeight('textBox1')" 
 										onkeydown="setHeight('textBox1')" style="width: 100%; overflow: hidden;" th:text="${news.noidung}" readonly="true"> </textarea>
 										<script type="text/javascript">
 											function setHeight(fieldId) {
@@ -106,7 +106,7 @@
 													document.getElementById(fieldId).scrollHeight + 'px';
 											}
 											setHeight('textBox1');
-										</script>
+										</script> -->
 									</div>
 								</div>		
 								<div class="navigation-wrap justify-content-between d-flex">
@@ -130,7 +130,7 @@
 								<th:block th:each="tintuc,pos:${listPopular}">
 									<div class="single-list flex-row d-flex">
 										<div class="thumb">
-											<img th:src="@{/storage_image/{image}(image=${tintuc.anh})}" width="100px" height="80px" />
+											<img th:src="@{${tintuc.anh}}" width="100px" height="80px" />
 										</div>
 										<div class="details">
 											<a th:href="@{/{id}(id=${tintuc.matintuc})}">
@@ -149,7 +149,7 @@
 								<th:block th:each="tintuc,pos:${listNew}">
 									<div class="single-list flex-row d-flex">
 										<div class="thumb">
-											<img th:src="@{/storage_image/{image}(image=${tintuc.anh})}" width="100px" height="80px" />
+											<img th:src="@{${tintuc.anh}}" width="100px" height="80px" />
 										</div>
 										<div class="details">
 											<a th:href="@{/{id}(id=${tintuc.matintuc})}">

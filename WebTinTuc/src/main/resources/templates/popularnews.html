@@ -88,7 +88,7 @@
 									<div class="col-lg-5 post-left">
 										<div class="feature-img relative">
 											<div class="overlay overlay-bg"></div>
-											<img class="img-fluid" th:src="@{/storage_image/{image}(image=${tintuc.anh})}" alt="" />
+											<img class="img-fluid" th:src="@{${tintuc.anh}}" alt="" />
 										</div>
 										<ul class="tags">
 											<li><a href="#" th:text="${tintuc.luotxem +' lượt xem'}"></a></li>
@@ -104,7 +104,7 @@
 											<li><a href="#" th:text="${tintuc.ngay}"><span
 													class="lnr lnr-calendar-full"></span></a></li>
 										</ul>
-										<p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p>
+										<!-- <p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p> -->
 									</div>
 								</div>
 							</th:block>
@@ -122,7 +122,7 @@
 								<th:block th:each="tintuc,pos:${listNew}">
 									<div class="single-list flex-row d-flex">
 										<div class="thumb">
-											<img th:src="@{/storage_image/{image}(image=${tintuc.anh})}" width="100px" height="80px" />
+											<img th:src="@{${tintuc.anh}}" width="100px" height="80px" />
 										</div>
 										<div class="details">
 											<a th:href="@{/{id}(id=${tintuc.matintuc})}">

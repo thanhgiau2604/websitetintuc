@@ -69,7 +69,7 @@
 					<div class="col-lg-8 top-post-left">
 						<div class="feature-image-thumb relative">
 							<div class="overlay overlay-bg"></div>
-							<img class="img-fluid" th:src="@{/storage_image/{image}(image=${random1.anh})}" alt="" />
+							<img class="img-fluid" th:src="@{${random1.anh}}" alt="" />
 						</div>
 						<div class="top-post-details">
 							<ul class="tags">
@@ -88,7 +88,7 @@
 						<div class="single-top-post">
 							<div class="feature-image-thumb relative">
 								<div class="overlay overlay-bg"></div>
-								<img class="img-fluid" th:src="@{/storage_image/{image}(image=${random2.anh})}" alt="" />
+								<img class="img-fluid" th:src="@{${random2.anh}}" alt="" />
 							</div>
 							<div class="top-post-details">
 								<ul class="tags">
@@ -106,7 +106,7 @@
 						<div class="single-top-post mt-10">
 							<div class="feature-image-thumb relative">
 								<div class="overlay overlay-bg"></div>
-								<img class="img-fluid" th:src="@{/storage_image/{image}(image=${random3.anh})}" alt="" />
+								<img class="img-fluid" th:src="@{${random3.anh}}" alt="" />
 							</div>
 							<div class="top-post-details">
 								<ul class="tags">
@@ -139,7 +139,7 @@
 									<div class="col-lg-5 post-left">
 										<div class="feature-img relative">
 											<div class="overlay overlay-bg"></div>
-											<img class="img-fluid" th:src="@{/storage_image/{image}(image=${tintuc.anh})}" alt="" />
+											<img class="img-fluid" th:src="@{${tintuc.anh}}" alt="" />
 										</div>
 										<ul class="tags">
 											<li><a href="#" th:text="${tintuc.luotxem +' lượt xem'}"></a></li>
@@ -153,7 +153,7 @@
 											<li><a href="#" th:text="${tintuc.tacgia}"><span class="lnr lnr-user"></span></a></li>
 											<li><a href="#" th:text="${tintuc.ngay}"><span class="lnr lnr-calendar-full"></span></a></li>
 										</ul>
-										<p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p>
+										<!-- <p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p> -->
 									</div>
 								</div>
 							</th:block>
@@ -166,7 +166,7 @@
 							<div class="feature-post relative">
 								<div class="feature-img relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" th:src="@{/storage_image/{image}(image=${firstPopular.anh})}" alt="" />
+									<img class="img-fluid" th:src="@{${firstPopular.anh}}" alt="" />
 								</div>
 								<div class="details">
 									<ul class="tags">
@@ -187,7 +187,7 @@
 										<div class="feature-img-wrap relative">
 											<div class="feature-img relative">
 												<div class="overlay overlay-bg"></div>
-												<img class="img-fluid" th:src="@{/storage_image/{image}(image=${tintuc.anh})}" alt="" />
+												<img class="img-fluid" th:src="@{${tintuc.anh}}" alt="" />
 											</div>
 											<ul class="tags">
 												<li><a href="#" th:text="${tintuc.luotxem +' lượt xem'}"></a></li>
@@ -201,7 +201,7 @@
 												<li><a href="#" th:text="${tintuc.tacgia}"><span class="lnr lnr-user"></span></a></li>
 												<li><a href="#" th:text="${tintuc.ngay}"><span class="lnr lnr-calendar-full"></span></a></li>
 											</ul>
-											<p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p>
+											<!-- <p class="excert" th:text="${#strings.abbreviate(tintuc.noidung,150)}"></p> -->
 										</div>
 									</div>
 								</th:block>

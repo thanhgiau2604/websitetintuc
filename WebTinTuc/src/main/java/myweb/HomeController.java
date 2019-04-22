@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import myweb.service.AdminService;
-import myweb.service.StorageService;
 import myweb.service.TinTucService;
 import myweb.entity.Admin;
 import myweb.entity.TinTuc;
@@ -28,9 +27,6 @@ public class HomeController {
 	
 	@Autowired
     private TinTucService tintucService;
-	
-	@Autowired
-    private StorageService storageService;
 	
 	@RequestMapping(value = {"/","/trangchu"}, method = RequestMethod.GET)
 	public String TrangChu(Model model, HttpSession session) { 
@@ -123,7 +119,7 @@ public class HomeController {
 	@RequestMapping(value = "/QLTinTuc", method = RequestMethod.GET)
 	public String QLTinTuc(Model model) { 
 		model.addAttribute("list",tintucService.getAllDescByNgay());
-		return "QLTinTuc";
+		return "QuanLyTinTuc"; //thay doi
 	}
 	@RequestMapping(value = "/ThayDoiThongTin", method = RequestMethod.GET)
 	public String ThayDoiThongTin(Model model, HttpSession session) { 
@@ -246,25 +242,29 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/LuuTinTuc", method = RequestMethod.POST)
-	public String LuuEdit(@RequestParam(name="tieude") String tieude, @RequestParam(name="pic") MultipartFile anh, 
-			@RequestParam(name="noidung") String noidung, @RequestParam(name="matintuc") String matintuc, Model model) throws IOException { 
-		TinTuc tintuc = tintucService.findOne(matintuc);
-		if (anh.getOriginalFilename()==null|| anh.getOriginalFilename().equals("")||anh.getOriginalFilename().equals(tintuc.getAnh()))
-			tintucService.UpdateNews(tieude, tintuc.getAnh(), noidung, matintuc);
-		else
+	public String LuuEdit(@RequestParam(name="tieude") String tieude, 
+			@RequestParam(name="content") String noidung, @RequestParam(name="matintuc") String matintuc, Model model) throws IOException { 
+		/*TinTuc tintuc = tintucService.findOne(matintuc);*/
+
+		ChuanHoaChuoi ch = new ChuanHoaChuoi();
+		String result = ch.ChuanHoa(noidung);
+		
+		String avatar="";
+		
+		int vt= result.indexOf("http");
+		
+		for (int i=vt; i<result.length(); i++)
 		{
-			tintucService.UpdateNews(tieude, anh.getOriginalFilename(), noidung, matintuc); 
-			try
-			{
-				storageService.store(anh);
-			}
-			catch (Exception e)
-			{
-				
-			}
+			if (result.charAt(i)=='"') break;
+		    avatar += result.charAt(i);
 		}
+		
+		System.out.println(avatar);
+		
+		tintucService.UpdateNews(tieude, avatar, noidung, matintuc);
+		
 		model.addAttribute("list",tintucService.getAllDescByNgay());
-		return "QLTinTuc";
+		return "QuanLyTinTuc";
 	}
 	
 	@RequestMapping(value = "/delete?{id}", method = RequestMethod.GET)
@@ -276,13 +276,30 @@ public class HomeController {
 	
 	@RequestMapping(value = "/themtintuc", method = RequestMethod.POST)
 	public String InsertNews(@RequestParam(name="matintuc") String matintuc, @RequestParam(name="tieude") String tieude, 
-			@RequestParam(name="pic") MultipartFile anh, @RequestParam(name="noidung") String noidung, Model model, HttpSession session) throws IOException { 
+         @RequestParam(name="content") String noidung, Model model, HttpSession session) throws IOException { 
 		String tacgia = session.getAttribute("usernamead").toString();
 		int luotxem =0;
-		tintucService.InsertNews(matintuc, tieude, anh.getOriginalFilename(), noidung,tacgia, luotxem);
-		storageService.store(anh);
+		
+		ChuanHoaChuoi ch = new ChuanHoaChuoi();
+		String result = ch.ChuanHoa(noidung);
+		
+		String avatar="";
+		
+		int vt= result.indexOf("http");
+		
+		for (int i=vt; i<result.length(); i++)
+		{
+			if (result.charAt(i)=='"') break;
+		    avatar += result.charAt(i);
+		}
+		
+		System.out.println(avatar);
+		
+		
+		tintucService.InsertNews(matintuc, tieude, avatar, noidung,tacgia, luotxem);
+		
 		model.addAttribute("list",tintucService.getAllDescByNgay());
-		return "QLTinTuc";
+		return "QuanLyTinTuc";
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
