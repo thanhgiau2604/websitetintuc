@@ -226,13 +226,13 @@ public class HomeController {
 	@RequestMapping(value = "/ttnew", method = RequestMethod.GET)
 	public String ttnew(Model model) { 
 		model.addAttribute("list",tintucService.findAllNew().subList(0, 4));
-		return "QLTinTuc";
+		return "QuanLyTinTuc";
 	}
 	
 	@RequestMapping(value = "/ttpopular", method = RequestMethod.GET)
 	public String ttpopular(Model model) { 
 		model.addAttribute("list",tintucService.findAllPopular().subList(0, 4));
-		return "QLTinTuc";
+		return "QuanLyTinTuc";
 	}
 	
 	@RequestMapping(value = "/edit={id}", method = RequestMethod.GET)
@@ -271,7 +271,7 @@ public class HomeController {
 	public String DeleteNews(@PathVariable("id") String matintuc, Model model) { 
 		tintucService.DeleteNews(matintuc); 
 		model.addAttribute("list",tintucService.getAllDescByNgay());
-		return "QLTinTuc";
+		return "QuanLyTinTuc";
 	}
 	
 	@RequestMapping(value = "/themtintuc", method = RequestMethod.POST)
