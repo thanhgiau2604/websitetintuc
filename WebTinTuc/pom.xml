@@ -11,7 +11,6 @@
 	<groupId>hello</groupId>
 	<artifactId>WebTinTuc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>WebTinTuc</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -48,7 +47,13 @@
         <groupId>javax.xml.bind</groupId>
         <artifactId>jaxb-api</artifactId>
         <version>2.3.0</version>
-</dependency>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.google.cloud.sql</groupId>
+            <artifactId>mysql-socket-factory</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -57,6 +62,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                 <groupId>com.google.cloud.tools</groupId>
+                 <artifactId>appengine-maven-plugin</artifactId>
+                 <version>1.2.1</version>
+            </plugin>
 		</plugins>
 	</build>
 
