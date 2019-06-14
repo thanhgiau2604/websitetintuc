@@ -143,6 +143,7 @@ public class HomeController {
 		admin = adminService.findOne(username);
 		boolean LoginSuccess = false;
 		if (admin!=null) {
+			System.out.print("Yes");
 			String myPass = admin.getmatkhau().toString();
 			if (myPass.equals(password))
 			{
@@ -306,6 +307,7 @@ public class HomeController {
 	public String TimKiem(@RequestParam(name="Search-box") String keysearch, Model model, HttpSession session) { 
 		model.addAttribute("listSearch", tintucService.search(keysearch));
 		model.addAttribute("keysearch", keysearch);
+		System.out.print("keysearch=" + keysearch);
 		if (session.getAttribute("usernamead")==null)
 			return "search_result";
 		else
